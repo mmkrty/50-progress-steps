@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-border-fill: #3498db;
+  --color-border-empty: #e0e0e0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  width: 350px;
+  position: relative;
+
+  /* border: 2px solid red; */
+}
+
+.progress-container::before {
+  content: ""; /*important!*/
+  background-color: var(--color-border-empty);
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.progress {
+  background-color: var(--color-border-fill);
+  height: 4px;
+  width: 0%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.circle {
+  background-color: var(--color-border-empty);
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--color-border-empty);
+  transition: 0.4s ease;
+}
+
+.circle.active {
+  border-color: var(--color-border-fill);
+}
+
+.btn {
+  background-color: var(--color-border-fill);
+  font-family: inherit;
+  border: 0;
+  border-radius: 5px;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: white;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background-color: var(--color-border-empty);
+  cursor: not-allowed;
+}
